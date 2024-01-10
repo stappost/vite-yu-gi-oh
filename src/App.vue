@@ -1,17 +1,19 @@
 <script>
 // IMPORT AXIOS 
-import axios from "axios"
+import axios from "axios";
 
 // IMPORT COMPONENTS 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import Loader from './components/Loader.vue';
 // STATE MANAGEMENT 
 import { store } from './store';
 
 export default {
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    Loader
   },
   data() {
     return {
@@ -23,8 +25,11 @@ export default {
     getCards() {
       axios.get(store.endpoint).then(results => {
         store.cards = results.data.data
+        store.loading = false
       })
-    }
+    },
+
+
   },
   created() {
     this.getCards()
@@ -33,7 +38,8 @@ export default {
 } 
 </script>
 <template lang="">
-  <div>
+  <Loader v-if="store.loading"/>
+  <div v-else>
     <AppHeader />
     <AppMain />
   </div>
