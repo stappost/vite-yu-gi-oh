@@ -4,11 +4,19 @@ export default {
 }
 </script>
 <template lang="">
-    <div>
+    <header>
         <div class="logo">
 
         </div>
         <h2>Yu-Gi-Oh Api</h2>
-    </div>
+    </header>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+header {
+    padding: 10px;
+
+    h2 {
+        font-weight: 100;
+    }
+}
+</style>
