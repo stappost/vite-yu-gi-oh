@@ -1,4 +1,5 @@
 <script>
+// IMPORT COMPONENTS 
 import AppSearch from './AppSearch.vue';
 import CardList from './CardsList.vue'
 export default {
@@ -9,7 +10,9 @@ export default {
 }
 </script>
 <template lang="">
+    <!-- BG MAIN  -->
     <div class="bg_yellow">
+        <!-- CONTAINER WITH FILTER AND CARD LIST  -->
         <div class="container">
             <AppSearch />
             <CardList />

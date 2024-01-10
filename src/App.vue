@@ -1,7 +1,11 @@
 <script>
+// IMPORT AXIOS 
 import axios from "axios"
+
+// IMPORT COMPONENTS 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+// STATE MANAGEMENT 
 import { store } from './store';
 
 export default {
@@ -15,6 +19,7 @@ export default {
     }
   },
   methods: {
+    // TAKE ARRAY IN API 
     getCards() {
       axios.get(store.endpoint).then(results => {
         store.cards = results.data.data

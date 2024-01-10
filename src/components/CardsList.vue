@@ -1,5 +1,7 @@
 <script>
+// STATE MANAGEMENT 
 import { store } from '../store';
+// IMPORT COMPONENTS 
 import Card from './Card.vue'
 export default {
     components: {
@@ -15,9 +17,11 @@ export default {
 <template lang="">
     <div class="container">
         <div class="row">
+            <!-- CARD COUNTER  -->
             <div class="bg_black">
                 Found {{ store.cards.length }} cards
             </div>
+            <!-- CREATION CARD LIST  -->
             <Card v-for="card, index in store.cards" :key="index" :single_card="card"/>
         </div>
     </div>

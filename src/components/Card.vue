@@ -6,10 +6,14 @@ export default {
 }
 </script>
 <template lang="">
+    
     <div class="card">
+        <!-- IMG CARD  -->
         <img :src="single_card.card_images[0].image_url" :alt="single_card.name">
+        <!-- NAME CARD  -->
         <h4>{{single_card.name}}</h4>
-        <div class="archetype">{{single_card.archetype}}</div>
+        <!-- ARCHETYPE CARD  -->
+        <div>{{single_card.archetype}}</div>
     </div>
 </template>
 <style lang="scss" scoped>
