@@ -1,9 +1,10 @@
 <script>
 import AppSearch from './AppSearch.vue';
-
+import CardList from './CardsList.vue'
 export default {
     components: {
-        AppSearch
+        AppSearch,
+        CardList
     }
 }
 </script>
@@ -11,7 +12,7 @@ export default {
     <div class="bg_yellow">
         <div class="container">
             <AppSearch />
-
+            <CardList />
         </div>
     </div>
 </template>
