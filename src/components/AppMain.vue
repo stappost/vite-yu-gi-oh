@@ -5,7 +5,7 @@ export default {
     components: {
         AppSearch,
         CardList
-    }
+    },
 }
 </script>
 <template lang="">
