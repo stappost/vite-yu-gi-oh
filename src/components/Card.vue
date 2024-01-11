@@ -9,7 +9,7 @@ export default {
     
     <div class="card">
         <!-- IMG CARD  -->
-        <img :src="single_card.card_images[0].image_url" :alt="single_card.name">
+        <img :src="single_card.card_images.length > 0 ? single_card.card_images[0].image_url : ''" :alt="single_card.name">
         <!-- NAME CARD  -->
         <h4>{{single_card.name}}</h4>
         <!-- ARCHETYPE CARD  -->
