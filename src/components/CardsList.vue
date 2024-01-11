@@ -32,7 +32,7 @@ export default {
 .container {
     background-color: white;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px auto;
 
     .row {
         display: flex;

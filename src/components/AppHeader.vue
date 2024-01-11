@@ -17,6 +17,7 @@ header {
     padding: 10px;
     display: flex;
     align-items: center;
+    background-color: white;
 
     .logo {
         max-width: 100px;

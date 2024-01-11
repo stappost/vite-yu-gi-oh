@@ -4,16 +4,18 @@ import axios from "axios";
 
 // IMPORT COMPONENTS 
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
 import Loader from './components/Loader.vue';
+import AppSearch from './components/AppSearch.vue';
+import CardList from './components/CardsList.vue'
 // STATE MANAGEMENT 
 import { store } from './store';
 
 export default {
   components: {
     AppHeader,
-    AppMain,
-    Loader
+    Loader,
+    AppSearch,
+    CardList
   },
   data() {
     return {
@@ -23,16 +25,25 @@ export default {
   methods: {
     // TAKE ARRAY IN API 
     getCards() {
+
+
       axios.get(store.endpoint).then(results => {
         store.cards = results.data.data
         store.loading = false
       })
     },
+    getArch() {
+      axios.get(store.archApiUrl).then(results => {
+        store.arch_array = results.data
+        console.log(store.arch_array)
+      })
+    }
 
 
   },
   created() {
-    this.getCards()
+    this.getCards();
+    this.getArch()
   }
 
 } 
@@ -41,7 +52,8 @@ export default {
   <Loader v-if="store.loading"/>
   <div v-else>
     <AppHeader />
-    <AppMain />
+    <AppSearch :arch_array="store.arch_array"/>
+    <CardList />
   </div>
 </template>
 <style lang="scss">
