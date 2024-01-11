@@ -32,7 +32,6 @@ export default {
       let apiCards = store.endpoint
 
       if (store.filter != '') {
-        console.log(store.filter)
         apiCards += `&archetype=${store.filter}`
       }
       axios.get(apiCards).then(results => {

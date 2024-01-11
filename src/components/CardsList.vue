@@ -2,25 +2,30 @@
 // STATE MANAGEMENT 
 import { store } from '../store';
 // IMPORT COMPONENTS 
-import Card from './Card.vue'
+import Card from './Card.vue';
+import AppCounter from './AppCounter.vue'
 export default {
     components: {
-        Card
+        Card,
+        AppCounter
     },
     data() {
         return {
             store
         }
     },
+    computed: {
+        countercard() {
+            return store.cards.length
+        }
+    }
 }
 </script>
 <template lang="">
     <div class="container">
         <div class="row">
             <!-- CARD COUNTER  -->
-            <div class="bg_black">
-                Found {{ store.cards.length }} cards
-            </div>
+            <AppCounter  :cards='store.cards'/>
             <!-- CREATION CARD LIST  -->
             <Card v-for="card, index in store.cards" :key="index" :single_card="card"/>
         </div>
@@ -39,14 +44,6 @@ export default {
         flex-wrap: wrap;
         margin: 0 auto;
 
-
-        .bg_black {
-            width: 100%;
-            background-color: #000;
-            color: $white;
-            padding: 10px;
-            font-weight: 600;
-        }
     }
 }
 </style>
