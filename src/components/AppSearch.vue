@@ -1,15 +1,20 @@
 <script>
+
+import { store } from '../store';
+
 export default {
-    props: {
-        arch_array: Array
-    }
+    data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 <template lang="">
     <div class="container">
-        <select >
+        <select v-model="store.filter" @click="$emit('getFilter')">
             <option value="">filtra</option>
-            <option v-for="arch, index in arch_array">{{arch.archetype_name}}</option>
+            <option v-for="arch, index in store.arch_array" :value=arch.archetype_name>{{arch.archetype_name}}</option>
         </select>
     </div>
 </template>

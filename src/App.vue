@@ -22,29 +22,33 @@ export default {
       store
     }
   },
+  created() {
+    this.getCards();
+    this.getArch()
+  },
   methods: {
     // TAKE ARRAY IN API 
     getCards() {
+      let apiCards = store.endpoint
 
-
-      axios.get(store.endpoint).then(results => {
+      if (store.filter != '') {
+        console.log(store.filter)
+        apiCards += `&archetype=${store.filter}`
+      }
+      axios.get(apiCards).then(results => {
         store.cards = results.data.data
         store.loading = false
+        store.filter = ''
       })
     },
     getArch() {
       axios.get(store.archApiUrl).then(results => {
         store.arch_array = results.data
-        console.log(store.arch_array)
       })
     }
-
-
   },
-  created() {
-    this.getCards();
-    this.getArch()
-  }
+
+
 
 } 
 </script>
@@ -52,7 +56,7 @@ export default {
   <Loader v-if="store.loading"/>
   <div v-else>
     <AppHeader />
-    <AppSearch :arch_array="store.arch_array"/>
+    <AppSearch @getFilter= "getCards"/>
     <CardList />
   </div>
 </template>
