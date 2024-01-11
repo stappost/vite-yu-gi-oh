@@ -12,7 +12,7 @@ export default {
 </script>
 <template lang="">
     <div class="container">
-        <select v-model="store.filter" @click="$emit('getFilter')">
+        <select v-model="store.filter" @change="$emit('getFilter')">
             <option value="">filtra</option>
             <option v-for="arch, index in store.arch_array" :value=arch.archetype_name>{{arch.archetype_name}}</option>
         </select>
